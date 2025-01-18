@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import json
 import logging
 import uuid
@@ -223,7 +221,7 @@ class ManticoreSearch:
 
     @classmethod
     def from_texts(
-        cls: Type[ManticoreSearch],
+        cls,
         texts: List[str],
         embedding: Embeddings,
         metadatas: Optional[List[Dict[Any, Any]]] = None,
@@ -232,7 +230,7 @@ class ManticoreSearch:
         text_ids: Optional[List[str]] = None,
         batch_size: int = 32,
         **kwargs: Any,
-    ) -> ManticoreSearch:
+    ):
         ctx = cls(embedding, config=config, **kwargs)
         ctx.add_texts(
             texts=texts,

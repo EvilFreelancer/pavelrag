@@ -3,7 +3,7 @@ from llama_index.embeddings.ollama import OllamaEmbedding
 DEFAULT_EMBEDDER_NAME = 'bge-m3:567m'
 
 
-def load_embedder_ollama(
+def load_embedder(
     model_name: str = DEFAULT_EMBEDDER_NAME,
     base_url: str = 'http://gpu02:11434',
     embed_batch_size=100,

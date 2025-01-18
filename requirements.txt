@@ -21,8 +21,3 @@ ollama~=0.4.6
 # Store
 manticoresearch-dev
 pydantic_settings~=2.7.1
-
-# API
-flask~=3.1.0
-flask-cors~=5.0.0
-gunicorn~=23.0.0

@@ -276,7 +276,7 @@ class MarkdownToGraph:
 
 
 if __name__ == '__main__':
-    with open('manual_files/Introduction.md', 'r') as f:
+    with open('../manual_files/Introduction.md', 'r') as f:
         input = f.read()
 
     obj = MarkdownToGraph.from_markdown(input)

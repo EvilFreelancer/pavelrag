@@ -1,7 +1,7 @@
 import logging
 from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
-from manticore_store import ManticoreSearchStore
+from pavelrag.models.manticore_search_docs_graphrag import ManticoreSearchDocsGraphRAG
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -10,7 +10,7 @@ app = Flask(__name__)
 CORS(app)
 
 MODELS_AVAILABLE = {
-    'manticoresearch': ManticoreSearchStore()
+    'ManticoreSearchDocs:GraphRAG': ManticoreSearchDocsGraphRAG()
 }
 
 MODELS_INSTANCES = {}
@@ -30,8 +30,8 @@ def openai_list_models():
     models = [{
         "id": model.id,
         "object": "model",
-        # "created": model.created,
-        # "owned_by": model.owned_by
+        "created": model.created,
+        "owned_by": model.owned_by
     } for model in MODELS_AVAILABLE.values()]
     return jsonify({"object": "list", "data": models})
 

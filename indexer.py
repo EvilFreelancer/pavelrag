@@ -1,10 +1,9 @@
 import os
 import logging
-from manticore import ManticoreSearch, ManticoreSearchSettings
-from embedder import load_embedder_ollama, DEFAULT_EMBEDDER_NAME
-from markdown_to_graph import MarkdownToGraph
+from pavelrag.stores.manticore import ManticoreSearch, ManticoreSearchSettings
+from pavelrag.load_embedder import load_embedder, DEFAULT_EMBEDDER_NAME
+from pavelrag.markdown_to_graph import MarkdownToGraph
 from hashlib import sha1
-from vision import describe_image
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -13,7 +12,7 @@ logger = logging.getLogger(__name__)
 DATA_PATH = os.path.join(os.path.dirname(__file__), 'manual_files')
 
 # Load embeddings
-embedding_model = load_embedder_ollama(DEFAULT_EMBEDDER_NAME)
+embedding_model = load_embedder(DEFAULT_EMBEDDER_NAME)
 
 # Initialize ManticoreSearch for 'nodes' table
 nodes_config = ManticoreSearchSettings(table="nodes")

@@ -16,4 +16,4 @@ gunicorn \
   --error-logfile=/dev/stderr \
   --access-logfile=/dev/stdout \
   --log-file=/dev/stdout \
-  wsgi:vector_app
+  vector:app

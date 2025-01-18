@@ -4,6 +4,6 @@
 /manual_files/
 /manticore_data/
 /docker-compose.yml
-/__pycache__/
+__pycache__
 *.html
 *.png
