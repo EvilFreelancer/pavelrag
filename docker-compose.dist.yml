@@ -1,0 +1,16 @@
+services:
+
+  manticore:
+    restart: "unless-stopped"
+    image: manticoresearch/manticore:6.3.8
+    user: "0"
+    ports:
+      - "9306:9306"
+      - "9308:9308"
+      - "9312:9312"
+    volumes:
+      - ./manticore/manticore.conf:/etc/manticoresearch/manticore.conf
+      - ./manticore_data:/var/lib/manticore
+
+#    vector-api:
+#      restart: "unless-stopped"
