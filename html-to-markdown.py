@@ -1,16 +1,26 @@
-# pip install transformers
-from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 checkpoint = "jinaai/reader-lm-1.5b"
 
-device = "cpu"  # for GPU usage or "cpu" for CPU usage
+dtype = torch.bfloat16
+quantization_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_compute_dtype=dtype,
+    bnb_4bit_quant_type="nf4",
+    bnb_4bit_use_double_quant=True
+)
+
+device = "cuda"  # for GPU usage or "cpu" for CPU usage
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
-model = AutoModelForCausalLM.from_pretrained(checkpoint).to(device)
+model = AutoModelForCausalLM.from_pretrained(
+    checkpoint,
+    quantization_config=quantization_config,
+).to(device)
 
 # example html content
 with open("test.html", "r") as f:
     html_content = f.read()
-    #html_content = "<html><body><h1>Hello, world!</h1></body></html>"
 
 messages = [{"role": "user", "content": html_content}]
 input_text = tokenizer.apply_chat_template(messages, tokenize=False)
