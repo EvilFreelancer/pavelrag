@@ -1,9 +1,8 @@
 /.idea/
 /venv/
-/docs/
-/volumes/
-/data/
+/manual_files/
+/manticore_data/
 /docker-compose.yml
-/faiss*
-/milvus*
 __pycache__
+*.html
+*.png

@@ -1,23 +1,22 @@
-# Local inferece
-transformers~=4.48.0
-torch~=2.5.1
-bitsandbytes~=0.45.0
-accelerate>=0.26.0
+# Core
+requests~=2.32.3
+llama-index~=0.12.11
 
-# For crawling
-gitpython~=3.1.44
-
-# Graph view
-matplotlib
-beautifulsoup4~=4.12.3
-markdown~=3.7
-
-# Interaction with Ollama
-llama_index~=0.12.11
-llama-index-llms-ollama~=0.5.0
+# Ollama
 llama-index-embeddings-ollama~=0.5.0
+llama-index-llms-ollama~=0.5.0
 ollama~=0.4.6
 
-# Store
-manticoresearch-dev
-pydantic_settings~=2.7.1
+# Vectore store
+llama-index-vector-stores-faiss~=0.3.0
+faiss-cpu~=1.9.0.post1
+llama-index-vector-stores-milvus~=0.5.0
+milvus-lite~=2.4.11
+FlagEmbedding~=1.3.3
+
+# Telegram
+aiogram~=3.17.0
+
+# Reranker
+torch~=2.5.1
+sentence-transformers~=3.3.1
